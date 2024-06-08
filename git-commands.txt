@@ -1,0 +1,20 @@
+to generate ssh key pair:  ssh-keygen -t rsa -C "praveebhimani@gmail.com"
+
+after generating the ssh key pair add the public key to your github account in settings
+
+then config the user name and email using git config command
+git config --global user.name ""
+git config --global user.email ""
+git remote -v
+then to copy the repository locally: git clone "<copy paste the ssh related url"
+
+git add .
+git commit -m "message"
+git status
+git log
+
+to push the changes made in local to remote use: git push
+
+to pull the changes made in remote to local use: git pull
+
+to go to gui interface use command: git gui&
