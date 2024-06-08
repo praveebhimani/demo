@@ -37,3 +37,23 @@ git show -s --pretty=raw d2d84 (commit id)
 git ls-tree 629eb (tree id)
 git show abb54 (blob id)
 
+
+UNDOING CHANGES
+
+from working directory
+* git checkout --<file> (to remove changes from that particular file)
+* git checkout . (to remove all changes)
+if we create new file  and write something by using checkout command it only removes the text in the new file but does not delete the new file
+* to remove the new files : git clean -xdf
+f-force, d-directory
+
+from staging area to working directory
+* git reset -- <file.txt>
+
+from local repo to staging area
+* if we commit then to revert the commit use command: git reset HEAD~n (here n represents how many commits do you want to revert)
+* to save the changes in a file in the previous version other than creating new one use:
+git commit --ammend -m "commit message"
+
+from remote repo
+* git revert <sha1>

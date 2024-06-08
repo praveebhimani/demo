@@ -1,2 +1,6 @@
 Hai hello
 I am modifying the file in web interface
+
+new modifications.
+
+other modification.
