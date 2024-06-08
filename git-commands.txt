@@ -56,6 +56,9 @@ from local repo to staging area
 * to save the changes in a file in the previous version other than creating new one use:
 git commit --ammend -m "commit message"
 
+* git reset --soft HEAD~1 this reverts the commit to staging area
+* git reset --mixed HEAD~1 this reverts the commit to working area
+* git reset --hard HEAD~1 this removes the commit
+
 from remote repo
 * git revert <sha1>
-
