@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * to generate ssh key pair:  ssh-keygen -t rsa -C "<emailid>"
 
 ! after generating the ssh key pair add the public key to your github account in settings
@@ -57,3 +58,4 @@ git commit --ammend -m "commit message"
 
 from remote repo
 * git revert <sha1>
+
