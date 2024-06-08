@@ -1,0 +1,39 @@
+* to generate ssh key pair:  ssh-keygen -t rsa -C "<emailid>"
+
+! after generating the ssh key pair add the public key to your github account in settings
+
+! then config the user name and email using git config command
+* git config --global user.name "username"
+* git config --global user.email "emailid"
+* git remote -v :  is used to check the remote repositories that our local Git repository is connected 
+* then to copy the repository locally: git clone "<copy paste the ssh related url>"
+
+* to direct changes from working area to staged-area: git add . 
+* by commiting the changes the current version will be availble even if you modify it later and also the commited ones will redirect to remote repository if we do push command and vice-versa: git commit -m "message"
+* to see the status of the local repo:git status
+* to view all the commits in the respository: git log
+
+* to push the changes made in local to remote use: git push
+
+* to pull the changes made in remote to local use: git pull
+
+* to go to gui tool use command: git gui&
+ 
+* to open gitk tool use command: gitk&
+
+
+! so every time we make a commit the current version will be stored as a tree 
+* if we use command git show -s --pretty=raw <the first 4 to 5 letters of the SHA-1 hash value of the commit>
+! above command gives the parent of the current tree node and tree node info
+* to look into the tree use command: git ls-tree <the first 4 to 5 letters of the tree sha-1 hash>
+! this will give us the result of that version like how many files are there and what is the content that directory and files have.
+* to look into each file use command: git show <first 4 to 5 letters of the blob sha-1 hash>
+
+! the commits stores the version as a tree and that trees store the information in large binary object files.
+
+
+! commands for practice : here I used some dummy sha-1 letters just for practice
+git show -s --pretty=raw d2d84 (commit id)
+git ls-tree 629eb (tree id)
+git show abb54 (blob id)
+
