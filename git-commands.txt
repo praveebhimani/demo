@@ -97,3 +97,14 @@ if you are confident that your code is correct so to resolve conflict merge the 
 * git revert <sha1> (to undo merge)
 * user merge tool
 
+REBASE AND CHERRY PICK commands
+
+TAG
+
+! we can name the commits using tag command and this tag also can be used instead of SHA1
+
+* git tag <tagname>
+* git tag --list to see all the tags
+* git push --tags to push tags seperately
+* git checkout <tagname> (to navigate to that particular branch)
+
