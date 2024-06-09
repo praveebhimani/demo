@@ -115,3 +115,25 @@ STASH
 * git stash pop (bring the changes back and remove from the stash)
 * git stash apply (bring them back and leave in stash)
 * git stash drop (to remove or clear them)
+
+ctrl + insert - for copying
+shift + insert - for pasting
+
+REMOTE
+* git remote -v (is to check which server we are working with)
+* git remote remove origin (to remove the existing remote)
+* git remote add <name> <url> (to add)
+
+
+EXTRAS
+git config --global core.editor <path>
+git blame
+git bisect
+git log --pretty=oneline (to see all commits in one line)
+git log --pretty=format:"%h %s" -graph
+git config --global alias.last 
+git last
+git log master..experiment
+.git rerere 
+git submodule
+git filter-branch --tree-filter
