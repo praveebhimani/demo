@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 * to generate ssh key pair:  ssh-keygen -t rsa -C "<emailid>"
 
 ! after generating the ssh key pair add the public key to your github account in settings
@@ -62,3 +61,39 @@ git commit --ammend -m "commit message"
 
 from remote repo
 * git revert <sha1>
+
+
+GIT IGNORE
+
+If you want large no of files and you only want to track the changes made only in some files, and this can be done with the help of git ignore.
+
+create a file named as .gitignore in the repository
+then write the names of the files which should be ignored.
+
+examples
+
+--> .*log to ignore all .log files
+--> !error.log  track error.log file even though you are ignoring .log files
+--> /TODO only ignore TODO file
+--> build/ ignore all files in the build/ directory
+--> doc/*.txt ignore all .txt files only in doc directory but no in subdirectories
+--> doc/**/*.pdf ignore all pdf files in the doc directory and in subdirectories also
+
+BRANCHING AND MERGING
+fast forward and non fast forward merging
+* git checkout -b <branchname> to create new brach
+* git checkout <branchname> to go to that branch
+* git merge <branchname> to merge the branch into current branch
+
+--> avoid conflicts
+short commits
+no edits to whitespaces
+merge often
+--> conflicts solving
+* abort merge or cancel the merge: git merge --abort
+* git checkout --Xours --Xtheirs (resolve by selecting version)
+if you are confident that your code is correct so to resolve conflict merge the both of them and keep your data finally using this command (git checkout --Xours) and viceversa
+* git diff (to resolve merge manually)
+* git revert <sha1> (to undo merge)
+* user merge tool
+
