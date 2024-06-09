@@ -108,3 +108,10 @@ TAG
 * git push --tags to push tags seperately
 * git checkout <tagname> (to navigate to that particular branch)
 
+STASH
+! if you are doing something in your branch and you have to suddenly switch to some other branch, here you can't commit those changes and also cannot remove those changes in this case we can place those changes in some other places using stash, so the changes will remain but not commited yet.
+* git stash save "<description>"
+* git stash list (to view stashes)
+* git stash pop (bring the changes back and remove from the stash)
+* git stash apply (bring them back and leave in stash)
+* git stash drop (to remove or clear them)
