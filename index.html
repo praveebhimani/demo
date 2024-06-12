@@ -37,6 +37,7 @@
                 <li><code>git add .</code></li>
                 <li><code>git commit -m "message"</code></li>
             </ul>
+            <p>By committing the changes, the current version will be available even if you modify it later. The committed ones will redirect to the remote repository if we do the push command and vice-versa.</p>
         </div>
         <div class="section">
             <h2>Checking Status and Logs</h2>
@@ -70,20 +71,30 @@
                 <li><code>git ls-tree &lt;tree sha-1 hash&gt;</code></li>
                 <li><code>git show &lt;blob sha-1 hash&gt;</code></li>
             </ul>
+            <p>The commits store the version as a tree, and the trees store the information in large binary object files.</p>
         </div>
         <div class="section">
             <h2>Undoing Changes</h2>
-            <p><strong>Commands:</strong></p>
+            <p><strong>From Working Directory:</strong></p>
             <ul>
-                <li><code>git checkout --&lt;file&gt;</code></li>
-                <li><code>git checkout .</code></li>
-                <li><code>git clean -xdf</code></li>
+                <li><code>git checkout --&lt;file&gt;</code> to remove changes from that particular file</li>
+                <li><code>git checkout .</code> to remove all changes</li>
+                <li><code>git clean -xdf</code> to remove new files (f-force, d-directory)</li>
+            </ul>
+            <p><strong>From Staging Area to Working Directory:</strong></p>
+            <ul>
                 <li><code>git reset -- &lt;file.txt&gt;</code></li>
-                <li><code>git reset HEAD~n</code></li>
-                <li><code>git commit --amend -m "commit message"</code></li>
-                <li><code>git reset --soft HEAD~1</code></li>
-                <li><code>git reset --mixed HEAD~1</code></li>
-                <li><code>git reset --hard HEAD~1</code></li>
+            </ul>
+            <p><strong>From Local Repo to Staging Area:</strong></p>
+            <ul>
+                <li><code>git reset HEAD~n</code> to revert the commit (n represents how many commits you want to revert)</li>
+                <li><code>git commit --amend -m "commit message"</code> to save the changes in a file in the previous version other than creating a new one</li>
+                <li><code>git reset --soft HEAD~1</code> to revert the commit to the staging area</li>
+                <li><code>git reset --mixed HEAD~1</code> to revert the commit to the working area</li>
+                <li><code>git reset --hard HEAD~1</code> to remove the commit</li>
+            </ul>
+            <p><strong>From Remote Repo:</strong></p>
+            <ul>
                 <li><code>git revert &lt;sha1&gt;</code></li>
             </ul>
         </div>
@@ -123,37 +134,50 @@
             </ul>
         </div>
         <div class="section">
-            <h2>Rebase and Cherry Pick Commands</h2>
-            <!-- Additional information about these commands can be added here -->
+            <h2>Rebase and Cherry Pick</h2>
+            <p>Rebase and Cherry Pick commands are used for more advanced version control operations.</p>
         </div>
         <div class="section">
-            <h2>Tagging Commits</h2>
+            <h2>Tagging</h2>
+            <p>We can name the commits using the tag command and this tag also can be used instead of SHA1.</p>
             <p><strong>Commands:</strong></p>
             <ul>
                 <li><code>git tag &lt;tagname&gt;</code></li>
                 <li><code>git tag --list</code> to see all the tags</li>
                 <li><code>git push --tags</code> to push tags separately</li>
-                <li><code>git checkout &lt;tagname&gt;</code> to navigate to that particular tag</li>
+                <li><code>git checkout &lt;tagname&gt;</code> to navigate to that particular branch</li>
             </ul>
         </div>
         <div class="section">
-            <h2>Stashing Changes</h2>
+            <h2>Stashing</h2>
+            <p>If you are doing something in your branch and you have to suddenly switch to some other branch, you can't commit the changes because they aren't complete. In such cases, stashing helps you to save the changes temporarily and switch to other branches.</p>
             <p><strong>Commands:</strong></p>
             <ul>
-                <li><code>git stash save "&lt;description&gt;"</code></li>
-                <li><code>git stash list</code> to view stashes</li>
-                <li><code>git stash pop</code> to bring the changes back and remove from the stash</li>
-                <li><code>git stash apply</code> to bring them back and leave in the stash</li>
-                <li><code>git stash drop</code> to remove or clear them</li>
+                <li><code>git stash</code></li>
+                <li><code>git stash list</code> to list down the saved changes</li>
+                <li><code>git stash pop</code> to get back the stashed changes</li>
+                <li><code>git stash apply</code> bring them back and leave in stash</li>
+                <li><code>git stash drop{name}</code> to remove or clear them from stash</li>
+
             </ul>
         </div>
         <div class="section">
-            <h2>Remote Repositories</h2>
+            <h2>Submodules</h2>
+            <p>Sometimes you might need to use some other project as a subdirectory in your project. In such cases, you need to add a submodule.</p>
             <p><strong>Commands:</strong></p>
             <ul>
-                <li><code>git remote -v</code> to check which server we are working with</li>
-                <li><code>git remote remove origin</code> to remove the existing remote</li>
-                <li><code>git remote add &lt;name&gt; &lt;url&gt;</code> to add a remote</li>
+                <li><code>git submodule add &lt;git_url&gt; &lt;directory_name&gt;</code> to create the submodule</li>
+                <li><code>git submodule init</code> to update the changes</li>
+                <li><code>git submodule update</code> to update the changes</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Remote</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git remote -v</code> (is to check which server we are working with)</li>
+                <li><code>git remote remove origin</code> (to remove the existing remote)</li>
+                <li><code>git remote add &lt;name&gt; &lt;url&gt;</code> (to add)</li>
             </ul>
         </div>
         <div class="section">
@@ -163,7 +187,7 @@
                 <li><code>git config --global core.editor &lt;path&gt;</code></li>
                 <li><code>git blame</code></li>
                 <li><code>git bisect</code></li>
-                <li><code>git log --pretty=oneline</code> to see all commits in one line</li>
+                <li><code>git log --pretty=oneline</code> (to see all commits in one line)</li>
                 <li><code>git log --pretty=format:"%h %s" -graph</code></li>
                 <li><code>git config --global alias.last</code></li>
                 <li><code>git last</code></li>
@@ -171,18 +195,25 @@
                 <li><code>.git rerere</code></li>
                 <li><code>git submodule</code></li>
                 <li><code>git filter-branch --tree-filter</code></li>
-                <li><code>git tag -d tag-name</code> where tag-name is the name of the Git tag you want to delete</li>
-                <li><code>git tag</code> to list all tags</li>
-                <li><code>git push --all origin</code> to push all branches</li>
+                <li><code>git tag -d tag-name</code> (command where tag-name is the name of the Git tag you want to delete)</li>
+                <li><code>git tag</code> (to list all tags)</li>
+                <li><code>git push --all origin</code> (to push all branches)</li>
             </ul>
         </div>
         <div class="section">
-            <h2>Keyboard Shortcuts</h2>
-            <p><strong>Shortcuts:</strong></p>
+            <h2>Additional Commands</h2>
+            <p><strong>Commands:</strong></p>
             <ul>
-                <li><code>Ctrl + Insert</code> for copying</li>
-                <li><code>Shift + Insert</code> for pasting</li>
+                <li><code>echo</code></li>
+                <li><code>cd</code></li>
+                <li><code>cat</code></li>
+                <li><code>vi</code></li>
             </ul>
+        </div>
+        
+        <div class="section">
+            <h2>For More Information</h2>
+            <p>For more detailed information, please check my repository on GitHub: <a href="https://github.com/praveebhimani/demo/blob/main/git-commands.txt" target="_blank">Git Commands and Concepts</a></p>
         </div>
     </div>
 </body>
