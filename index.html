@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commands and Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Git Commands and Concepts</h1>
+        <div class="section">
+            <h2>Generating SSH Key Pair</h2>
+            <p><strong>Command:</strong> <code>ssh-keygen -t rsa -C "&lt;emailid&gt;"</code></p>
+            <p>After generating the SSH key pair, add the public key to your GitHub account in settings.</p>
+        </div>
+        <div class="section">
+            <h2>Configuring User Information</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git config --global user.name "username"</code></li>
+                <li><code>git config --global user.email "emailid"</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Checking Remote Repositories</h2>
+            <p><strong>Command:</strong> <code>git remote -v</code></p>
+        </div>
+        <div class="section">
+            <h2>Cloning a Repository</h2>
+            <p><strong>Command:</strong> <code>git clone "&lt;copy paste the ssh related url&gt;"</code></p>
+        </div>
+        <div class="section">
+            <h2>Staging and Committing Changes</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git add .</code></li>
+                <li><code>git commit -m "message"</code></li>
+            </ul>
+            <p>By committing the changes, the current version will be available even if you modify it later. The committed ones will redirect to the remote repository if we do the push command and vice-versa.</p>
+        </div>
+        <div class="section">
+            <h2>Checking Status and Logs</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git status</code></li>
+                <li><code>git log</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Pushing and Pulling Changes</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git push</code></li>
+                <li><code>git pull</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>GUI Tools</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git gui&amp;</code></li>
+                <li><code>gitk&amp;</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Version Tree</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git show -s --pretty=raw &lt;SHA-1 hash&gt;</code></li>
+                <li><code>git ls-tree &lt;tree sha-1 hash&gt;</code></li>
+                <li><code>git show &lt;blob sha-1 hash&gt;</code></li>
+            </ul>
+            <p>The commits store the version as a tree, and the trees store the information in large binary object files.</p>
+        </div>
+        <div class="section">
+            <h2>Undoing Changes</h2>
+            <p><strong>From Working Directory:</strong></p>
+            <ul>
+                <li><code>git checkout --&lt;file&gt;</code> to remove changes from that particular file</li>
+                <li><code>git checkout .</code> to remove all changes</li>
+                <li><code>git clean -xdf</code> to remove new files (f-force, d-directory)</li>
+            </ul>
+            <p><strong>From Staging Area to Working Directory:</strong></p>
+            <ul>
+                <li><code>git reset -- &lt;file.txt&gt;</code></li>
+            </ul>
+            <p><strong>From Local Repo to Staging Area:</strong></p>
+            <ul>
+                <li><code>git reset HEAD~n</code> to revert the commit (n represents how many commits you want to revert)</li>
+                <li><code>git commit --amend -m "commit message"</code> to save the changes in a file in the previous version other than creating a new one</li>
+                <li><code>git reset --soft HEAD~1</code> to revert the commit to the staging area</li>
+                <li><code>git reset --mixed HEAD~1</code> to revert the commit to the working area</li>
+                <li><code>git reset --hard HEAD~1</code> to remove the commit</li>
+            </ul>
+            <p><strong>From Remote Repo:</strong></p>
+            <ul>
+                <li><code>git revert &lt;sha1&gt;</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Git Ignore</h2>
+            <p>Create a <code>.gitignore</code> file in the repository and write the names of the files which should be ignored.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><code>*.log</code> to ignore all <code>.log</code> files</li>
+                <li><code>!error.log</code> to track <code>error.log</code> file even though you are ignoring <code>.log</code> files</li>
+                <li><code>/TODO</code> to only ignore the <code>TODO</code> file</li>
+                <li><code>build/</code> to ignore all files in the <code>build/</code> directory</li>
+                <li><code>doc/*.txt</code> to ignore all <code>.txt</code> files only in the <code>doc</code> directory but not in subdirectories</li>
+                <li><code>doc/**/*.pdf</code> to ignore all <code>.pdf</code> files in the <code>doc</code> directory and in subdirectories</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Branching and Merging</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git checkout -b &lt;branchname&gt;</code> to create a new branch</li>
+                <li><code>git checkout &lt;branchname&gt;</code> to switch to that branch</li>
+                <li><code>git merge &lt;branchname&gt;</code> to merge the branch into the current branch</li>
+            </ul>
+            <p><strong>Tips to Avoid Conflicts:</strong></p>
+            <ul>
+                <li>Short commits</li>
+                <li>No edits to whitespaces</li>
+                <li>Merge often</li>
+            </ul>
+            <p><strong>Commands to Resolve Conflicts:</strong></p>
+            <ul>
+                <li><code>git merge --abort</code> to abort merge or cancel the merge</li>
+                <li><code>git checkout --Xours</code> or <code>--Xtheirs</code> to resolve by selecting version</li>
+                <li><code>git diff</code> to resolve merge manually</li>
+                <li><code>git revert &lt;sha1&gt;</code> to undo merge</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Rebase and Cherry Pick</h2>
+            <p>Rebase and Cherry Pick commands are used for more advanced version control operations.</p>
+        </div>
+        <div class="section">
+            <h2>Tagging</h2>
+            <p>We can name the commits using the tag command and this tag also can be used instead of SHA1.</p>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git tag &lt;tagname&gt;</code></li>
+                <li><code>git tag --list</code> to see all the tags</li>
+                <li><code>git push --tags</code> to push tags separately</li>
+                <li><code>git checkout &lt;tagname&gt;</code> to navigate to that particular branch</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Stashing</h2>
+            <p>If you are doing something in your branch and you have to suddenly switch to some other branch, you can't commit the changes because they aren't complete. In such cases, stashing helps you to save the changes temporarily and switch to other branches.</p>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git stash</code></li>
+                <li><code>git stash list</code> to list down the saved changes</li>
+                <li><code>git stash pop</code> to get back the stashed changes</li>
+                <li><code>git stash apply</code> bring them back and leave in stash</li>
+                <li><code>git stash drop{name}</code> to remove or clear them from stash</li>
+
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Submodules</h2>
+            <p>Sometimes you might need to use some other project as a subdirectory in your project. In such cases, you need to add a submodule.</p>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git submodule add &lt;git_url&gt; &lt;directory_name&gt;</code> to create the submodule</li>
+                <li><code>git submodule init</code> to update the changes</li>
+                <li><code>git submodule update</code> to update the changes</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Remote</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git remote -v</code> (is to check which server we are working with)</li>
+                <li><code>git remote remove origin</code> (to remove the existing remote)</li>
+                <li><code>git remote add &lt;name&gt; &lt;url&gt;</code> (to add)</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Extras</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git config --global core.editor &lt;path&gt;</code></li>
+                <li><code>git blame</code></li>
+                <li><code>git bisect</code></li>
+                <li><code>git log --pretty=oneline</code> (to see all commits in one line)</li>
+                <li><code>git log --pretty=format:"%h %s" -graph</code></li>
+                <li><code>git config --global alias.last</code></li>
+                <li><code>git last</code></li>
+                <li><code>git log master..experiment</code></li>
+                <li><code>.git rerere</code></li>
+                <li><code>git submodule</code></li>
+                <li><code>git filter-branch --tree-filter</code></li>
+                <li><code>git tag -d tag-name</code> (command where tag-name is the name of the Git tag you want to delete)</li>
+                <li><code>git tag</code> (to list all tags)</li>
+                <li><code>git push --all origin</code> (to push all branches)</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Additional Commands</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>echo</code></li>
+                <li><code>cd</code></li>
+                <li><code>cat</code></li>
+                <li><code>vi</code></li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>For More Information</h2>
+            <p>For more detailed information, please check my repository on GitHub: <a href="https://github.com/praveebhimani/demo/blob/main/git-commands.txt" target="_blank">Git Commands and Concepts</a></p>
+        </div>
+    </div>
+</body>
+</html>
