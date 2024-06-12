@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commands and Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Git Commands and Concepts</h1>
+        <div class="section">
+            <h2>Generating SSH Key Pair</h2>
+            <p><strong>Command:</strong> <code>ssh-keygen -t rsa -C "&lt;emailid&gt;"</code></p>
+            <p>After generating the SSH key pair, add the public key to your GitHub account in settings.</p>
+        </div>
+        <div class="section">
+            <h2>Configuring User Information</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git config --global user.name "username"</code></li>
+                <li><code>git config --global user.email "emailid"</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Checking Remote Repositories</h2>
+            <p><strong>Command:</strong> <code>git remote -v</code></p>
+        </div>
+        <div class="section">
+            <h2>Cloning a Repository</h2>
+            <p><strong>Command:</strong> <code>git clone "&lt;copy paste the ssh related url&gt;"</code></p>
+        </div>
+        <div class="section">
+            <h2>Staging and Committing Changes</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git add .</code></li>
+                <li><code>git commit -m "message"</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Checking Status and Logs</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git status</code></li>
+                <li><code>git log</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Pushing and Pulling Changes</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git push</code></li>
+                <li><code>git pull</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>GUI Tools</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git gui&amp;</code></li>
+                <li><code>gitk&amp;</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Version Tree</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git show -s --pretty=raw &lt;SHA-1 hash&gt;</code></li>
+                <li><code>git ls-tree &lt;tree sha-1 hash&gt;</code></li>
+                <li><code>git show &lt;blob sha-1 hash&gt;</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Undoing Changes</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git checkout --&lt;file&gt;</code></li>
+                <li><code>git checkout .</code></li>
+                <li><code>git clean -xdf</code></li>
+                <li><code>git reset -- &lt;file.txt&gt;</code></li>
+                <li><code>git reset HEAD~n</code></li>
+                <li><code>git commit --amend -m "commit message"</code></li>
+                <li><code>git reset --soft HEAD~1</code></li>
+                <li><code>git reset --mixed HEAD~1</code></li>
+                <li><code>git reset --hard HEAD~1</code></li>
+                <li><code>git revert &lt;sha1&gt;</code></li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Git Ignore</h2>
+            <p>Create a <code>.gitignore</code> file in the repository and write the names of the files which should be ignored.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><code>*.log</code> to ignore all <code>.log</code> files</li>
+                <li><code>!error.log</code> to track <code>error.log</code> file even though you are ignoring <code>.log</code> files</li>
+                <li><code>/TODO</code> to only ignore the <code>TODO</code> file</li>
+                <li><code>build/</code> to ignore all files in the <code>build/</code> directory</li>
+                <li><code>doc/*.txt</code> to ignore all <code>.txt</code> files only in the <code>doc</code> directory but not in subdirectories</li>
+                <li><code>doc/**/*.pdf</code> to ignore all <code>.pdf</code> files in the <code>doc</code> directory and in subdirectories</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Branching and Merging</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git checkout -b &lt;branchname&gt;</code> to create a new branch</li>
+                <li><code>git checkout &lt;branchname&gt;</code> to switch to that branch</li>
+                <li><code>git merge &lt;branchname&gt;</code> to merge the branch into the current branch</li>
+            </ul>
+            <p><strong>Tips to Avoid Conflicts:</strong></p>
+            <ul>
+                <li>Short commits</li>
+                <li>No edits to whitespaces</li>
+                <li>Merge often</li>
+            </ul>
+            <p><strong>Commands to Resolve Conflicts:</strong></p>
+            <ul>
+                <li><code>git merge --abort</code> to abort merge or cancel the merge</li>
+                <li><code>git checkout --Xours</code> or <code>--Xtheirs</code> to resolve by selecting version</li>
+                <li><code>git diff</code> to resolve merge manually</li>
+                <li><code>git revert &lt;sha1&gt;</code> to undo merge</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Rebase and Cherry Pick Commands</h2>
+            <!-- Additional information about these commands can be added here -->
+        </div>
+        <div class="section">
+            <h2>Tagging Commits</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git tag &lt;tagname&gt;</code></li>
+                <li><code>git tag --list</code> to see all the tags</li>
+                <li><code>git push --tags</code> to push tags separately</li>
+                <li><code>git checkout &lt;tagname&gt;</code> to navigate to that particular tag</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Stashing Changes</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git stash save "&lt;description&gt;"</code></li>
+                <li><code>git stash list</code> to view stashes</li>
+                <li><code>git stash pop</code> to bring the changes back and remove from the stash</li>
+                <li><code>git stash apply</code> to bring them back and leave in the stash</li>
+                <li><code>git stash drop</code> to remove or clear them</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Remote Repositories</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git remote -v</code> to check which server we are working with</li>
+                <li><code>git remote remove origin</code> to remove the existing remote</li>
+                <li><code>git remote add &lt;name&gt; &lt;url&gt;</code> to add a remote</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Extras</h2>
+            <p><strong>Commands:</strong></p>
+            <ul>
+                <li><code>git config --global core.editor &lt;path&gt;</code></li>
+                <li><code>git blame</code></li>
+                <li><code>git bisect</code></li>
+                <li><code>git log --pretty=oneline</code> to see all commits in one line</li>
+                <li><code>git log --pretty=format:"%h %s" -graph</code></li>
+                <li><code>git config --global alias.last</code></li>
+                <li><code>git last</code></li>
+                <li><code>git log master..experiment</code></li>
+                <li><code>.git rerere</code></li>
+                <li><code>git submodule</code></li>
+                <li><code>git filter-branch --tree-filter</code></li>
+                <li><code>git tag -d tag-name</code> where tag-name is the name of the Git tag you want to delete</li>
+                <li><code>git tag</code> to list all tags</li>
+                <li><code>git push --all origin</code> to push all branches</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Keyboard Shortcuts</h2>
+            <p><strong>Shortcuts:</strong></p>
+            <ul>
+                <li><code>Ctrl + Insert</code> for copying</li>
+                <li><code>Shift + Insert</code> for pasting</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

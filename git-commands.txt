@@ -137,3 +137,11 @@ git log master..experiment
 .git rerere 
 git submodule
 git filter-branch --tree-filter
+git tag -d tag-name command where tag-name is the name of the Git tag you want to delete.
+git tag (to list all tags)
+git push --all origin (to push all branches)
+
+echo
+cd
+cat
+vi
